@@ -1,0 +1,72 @@
+question :-Write a Java program to create an abstract class
+ GeometricShape with abstract methods area() and perimeter().
+ Create subclasses
+ Triangle and Square that extend the GeometricShape class and
+ implement the respective methods to calculate the area and perimeter
+ of each shape.??
+class Triangle extends GeomatricShape{
+
+        private float side1;
+        private float side2;
+        private float side3;
+
+        Triangle(float side1,float side2,float side3)
+        {
+            this.side1 = side1;
+            this.side2 = side2;
+            this.side3 = side3;
+        }
+
+    @Override
+    void area()
+    {
+        System.out.println("Area of Triangle is :"+(side1*side2*side3)/2);
+    }
+
+    @Override
+    void perimeter() {
+        System.out.println("The perimeter of Triangle is ;"+(side1+side2+side3));
+
+
+    }
+}
+
+class Square extends GeomatricShape{
+
+     private float side;
+
+      Square(float side){
+          this.side = side;
+      }
+    @Override
+    void area()
+    {
+        System.out.println("The Area of Square is :"+side*side);
+    }
+
+    @Override
+
+    void perimeter()
+    {
+        System.out.println("The Perimeter of square is :"+4*side);
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        GeomatricShape s1 = new Square(12);
+
+        s1.area();
+        s1.perimeter();
+
+        GeomatricShape s2 = new Triangle(5,5,5);
+
+        s2.area();
+        s2.perimeter();
+
+
+
+    }
+}
