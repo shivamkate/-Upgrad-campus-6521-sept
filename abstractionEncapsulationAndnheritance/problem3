@@ -1,0 +1,53 @@
+
+//Write a Java program to create a class called Employee with
+// private instance variables employee_id, employee_name,
+// and employee_salary. Provide public getter and setter methods
+// to access and modify the id and name variables,
+// but provide a getter method for the salary variable
+// that returns a formatted string.
+class Main{
+public static void main(String[]args)
+        {
+            Employee e1 = new Employee();
+            e1.setId(1);
+            e1.setName("Shiavam");
+
+            e1.getName();
+            e1.getSalary();
+            e1.getId();
+
+        }
+
+
+}
+
+class Employee{
+      private String name;
+      private float salary;
+      private int id;
+
+      void setName(String name)
+      {
+            this.name = name;
+
+      }
+      void getName()
+      {
+            System.out.println("The name of the employeee is :"+name);
+      }
+
+      void setId(int id)
+      {
+            this.id = id;
+      }
+
+      void getId()
+      {
+            System.out.println("The id of the employee is :"+id);
+      }
+
+      void getSalary()
+      {
+            System.out.println("The Salary of the employee is "+salary);
+      }
+}
