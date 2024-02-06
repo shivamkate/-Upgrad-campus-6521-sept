@@ -1,3 +1,4 @@
+1)
 selection sort
 ascending order
 import java.util.*;
@@ -38,7 +39,8 @@ public class Main {
 
 
     }
-bubble sort 
+---------------------------------------------------------------------------
+2)bubble sort 
 import java.util.*;
 public class Main{
     public static void main(String args[])
@@ -73,3 +75,127 @@ public class Main{
     }
 }
 	
+---------------------------------------------------------------------------------------
+3)
+public class QuickSort {
+    public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 1, 5};
+
+        System.out.println("Array before sorting:");
+        printArray(arr);
+
+        quickSort(arr, 0, arr.length - 1);
+
+        System.out.println("\nArray after sorting:");
+        printArray(arr);
+    }
+
+    // Function to partition the array and return the pivot index
+    static int partition(int arr[], int low, int high) {
+        int pivot = arr[high];
+        int i = (low - 1); // index of smaller element
+        for (int j = low; j < high; j++) {
+            // If current element is smaller than or equal to pivot
+            if (arr[j] <= pivot) {
+                i++;
+
+                // swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
+
+    // Function to perform QuickSort
+    static void quickSort(int arr[], int low, int high) {
+        if (low < high) {
+            // partitionIndex is the partitioning index
+            int partitionIndex = partition(arr, low, high);
+
+            // Recursively sort elements before and after partitionIndex
+            quickSort(arr, low, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, high);
+   
+-------------------------------------------------------------------------------
+4)
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 8, 20, 2, 7};
+        int target = 8;
+
+        int index = linearSearch(arr, target);
+
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+
+    // Function to perform Linear Search
+    static int linearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Return the index if the element is found
+            }
+        }
+        return -1; // Return -1 if the element is not found
+    }
+}
+-------------------------------------------------------------------------------------
+5)
+public class BinarySearch {
+    public static void main(String[] args) {
+        int[] arr = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+        int target = 23;
+
+        int index = binarySearch(arr, target);
+
+        if (index != -1) {
+            System.out.println("Element " + target + " found at index " + index);
+        } else {
+            System.out.println("Element " + target + " not found in the array");
+        }
+    }
+
+    // Function to perform Binary Search
+    static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            // Check if target is present at mid
+            if (arr[mid] == target) {
+                return mid;
+            }
+
+            // If target is greater, ignore left half
+            if (arr[mid] < target) {
+                left = mid + 1;
+            }
+            // If target is smaller, ignore right half
+            else {
+                right = mid - 1;
+            }
+        }
+
+        // If we reach here, then the element was not present in the array
+        return -1;
+    }
+}
+
+
+
+
+
+
