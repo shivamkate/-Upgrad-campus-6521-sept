@@ -1,0 +1,195 @@
+1)
+
+import java.util.Stack;
+
+public class StackImplementation {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Pushing elements onto the stack
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        // Popping elements from the stack
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Popped element: " + stack.pop());
+
+        // Peeking at the top element of the stack
+        System.out.println("Top element: " + stack.peek());
+
+        // Checking if the stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty());
+    }
+}
+
+----------------------------------------------------------------------------------------
+
+2)
+
+import java.util.Stack;
+
+public class BalancedParentheses {
+    // Function to check if the given string of parentheses is balanced
+    public static boolean isBalanced(String str) {
+        Stack<Character> stack = new Stack<>();
+
+        // Iterate through each character in the string
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            // If it's an opening bracket, push it onto the stack
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            }
+            // If it's a closing bracket, check if it matches the top of the stack
+            else if (c == ')' || c == ']' || c == '}') {
+                // If the stack is empty or the top element doesn't match, return false
+                if (stack.isEmpty() || !isMatching(stack.pop(), c)) {
+                    return false;
+                }
+            }
+        }
+        // If the stack is empty at the end, it means all brackets are balanced
+        return stack.isEmpty();
+    }
+
+    // Function to check if two brackets are matching
+    private static boolean isMatching(char opening, char closing) {
+        return (opening == '(' && closing == ')') ||
+               (opening == '[' && closing == ']') ||
+               (opening == '{' && closing == '}');
+    }
+
+    // Main method to test the balanced parentheses function
+    public static void main(String[] args) {
+        String str1 = "{[()]}"; // Balanced string
+        String str2 = "{[()]";  // Unbalanced string
+
+        System.out.println("String 1 is balanced: " + isBalanced(str1));
+        System.out.println("String 2 is balanced: " + isBalanced(str2));
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------
+3)
+
+public class StringExample {
+    public static void main(String[] args) {
+        // Declare and initialize a string
+        String str = "Hello, world!";
+
+        // Get the length of the string
+        int length = str.length();
+        System.out.println("Length of the string: " + length);
+
+        // Check if the string contains a specific substring
+        boolean contains = str.contains("world");
+        System.out.println("Does the string contain 'world'? " + contains);
+
+        // Get a substring from the original string
+        String substring = str.substring(7); // Starting from index 7 to the end
+        System.out.println("Substring: " + substring);
+
+        // Convert the string to uppercase
+        String uppercase = str.toUpperCase();
+        System.out.println("Uppercase string: " + uppercase);
+
+        // Convert the string to lowercase
+        String lowercase = str.toLowerCase();
+        System.out.println("Lowercase string: " + lowercase);
+
+        // Replace characters in the string
+        String replaced = str.replace("Hello", "Hi");
+        System.out.println("Replaced string: " + replaced);
+
+        // Split the string into an array of substrings
+        String[] parts = str.split(",");
+        System.out.println("Split string:");
+        for (String part : parts) {
+            System.out.println(part.trim()); // Trim to remove leading/trailing whitespace
+        }
+
+        // Concatenate strings
+        String concat = str + " Have a nice day!";
+        System.out.println("Concatenated string: " + concat);
+
+        // Compare strings
+        String str2 = "Hello, world!";
+        boolean isEqual = str.equals(str2);
+        System.out.println("Are the strings equal? " + isEqual);
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+4)
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        // Create a queue using LinkedList
+        Queue<String> queue = new LinkedList<>();
+
+        // Enqueue elements to the queue
+        queue.offer("Apple");
+        queue.offer("Banana");
+        queue.offer("Orange");
+
+        System.out.println("Queue: " + queue);
+
+        // Dequeue elements from the queue
+        String firstElement = queue.poll();
+        System.out.println("Dequeued element: " + firstElement);
+        System.out.println("Queue after dequeuing: " + queue);
+
+        // Peek at the front element without removing it
+        String frontElement = queue.peek();
+        System.out.println("Front element: " + frontElement);
+
+        // Check if the queue is empty
+        boolean isEmpty = queue.isEmpty();
+        System.out.println("Is the queue empty? " + isEmpty);
+
+        // Get the size of the queue
+        int size = queue.size();
+        System.out.println("Size of the queue: " + size);
+    }
+}
+-------------------------------------------------------------------------------------------------
+5)
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BankQueueSimulation {
+    public static void main(String[] args) {
+        Queue<String> bankQueue = new LinkedList<>();
+
+        // Simulate customers arriving and joining the queue
+        bankQueue.offer("Customer 1");
+        bankQueue.offer("Customer 2");
+        bankQueue.offer("Customer 3");
+
+        // Serve customers one by one
+        while (!bankQueue.isEmpty()) {
+            String currentCustomer = bankQueue.poll();
+            System.out.println("Serving " + currentCustomer);
+            // Simulate serving time
+            try {
+                Thread.sleep(2000); // Simulating 2 seconds for serving
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("No more customers in the queue. Bank is empty.");
+    }
+}
+
+
+
+
+
+
+
+
+
